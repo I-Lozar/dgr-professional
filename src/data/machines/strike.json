@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "title": "Spark Strike",
+    "subtitle": "El detalle no es un remate. Es tu firma",
+    "image": "/images/spark-strike/hero/main.webp"
+  },
+"loPrincipal": {
+  "cards": [
+    {
+      "intro": "De 7.000 a 8.000 rpm reales con motor mecánico 360°",
+      "title": "Potencia con precisión",
+      "description": "La Spark Trimmer trabaja entre 7.000 y 8.000 rpm, la franja ideal para perfilar, delinear y limpiar contornos con firmeza, sin saltos y sin que la máquina corra más de la cuenta. Su motor mecánico entrega una potencia estable, pensada para detalles que requieren mano firme y corte seguro.",
+      "image": "/images/spark-dash/principal/slide-1.jpg"
+    },
+    {
+      "intro": "Rendimiento con precisión",
+      "title": "Pantalla inteligente y autonomía precisa",
+      "description": "Con sus 2.000 mAh, la Spark Trimmer ofrece una autonomía más que suficiente para una jornada completa de contornos y acabados. Trabaja con confianza gracias a su pantalla integrada, donde podrás ver en todo momento cuánta batería queda y a qué velocidad estás perfilando.",
+      "image": "/images/spark-dash/principal/slide-2.jpg"
+    },
+    {
+      "intro": "Cuchilla de grafeno + titanio con abertura más amplia",
+      "title": "Temperatura controlada con precisión",
+      "description": "La Spark Trimmer utiliza una cuchilla de grafeno con baño de titanio, diseñada con un ángulo más abierto que las trimmers promedio que favorece una entrada más directa, ideal para contornos, líneas y detalles profundos.",
+      "image": "/images/spark-dash/principal/slide-3.jpg"
+    },
+        {
+      "intro": "Peso y agarre para precisión total",
+      "title": "Ergonomía y caucho antideslizante",
+      "description": "En el retoque, la máquina no debe flotar: debe obedecer. La Spark Trimmer conserva un cuerpo sólido de aluminio que aporta la dosis justa de peso para otorgar estabilidad en movimientos cortos y precisos.",
+      "image": "/images/spark-dash/principal/slide-3.jpg"
+    }
+  ]
+  },
+  "details": {
+    "items": [
+      {
+        "title": "Velocidad",
+        "description": "Respuesta inmediata"
+      },
+      {
+        "title": "Ligereza",
+        "description": "Chasis ultraligero"
+      }
+    ]
+  }
+}

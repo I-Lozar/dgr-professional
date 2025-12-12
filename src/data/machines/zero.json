@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "title": "Spark Zero",
+    "subtitle": "El acabado que distingue un corte correcto de un corte perfecto",
+    "image": "/images/spark-zero/hero/main.webp"
+  },
+ "loPrincipal": {
+  "cards": [
+    {
+      "intro": "Acero inoxidable",
+      "title": "Acabado y eficacia impecables",
+      "description": "Sistema de tres cuchillas de acero inoxidable pensado para un fade impecable.",
+      "image": "/images/spark-dash/principal/slide-1.jpg"
+    },
+    {
+      "intro": "Batería DGR",
+      "title": "Autonomía extendida",
+      "description": "Con una batería de 1.400 mAh que podrás cargar con un USB-C y controlar el porcentaje de carga gracias a su pantalla incorporada.",
+      "image": "/images/spark-dash/principal/slide-2.jpg"
+    },
+    {
+      "intro": "Dos rodillos externos más una cuchilla central",
+      "title": "Motor premium",
+      "description": "Aporta 8.000 rpm reales para una ejecución infalible junto a su robusto cuerpo metálico que le da el peso ideal para maniobrar.",
+      "image": "/images/spark-dash/principal/slide-3.jpg"
+    }
+  ]
+  },
+  "details": {
+    "items": [
+      {
+        "title": "Silencio",
+        "description": "Funcionamiento ultra silencioso"
+      },
+      {
+        "title": "Autonomía",
+        "description": "Horas de uso continuo"
+      }
+    ]
+  }
+}

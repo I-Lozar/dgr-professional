@@ -1,0 +1,104 @@
+.
+├── README.md
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── data
+│   │   ├── LoPrincipal
+│   │   │   ├── dash.json
+│   │   │   ├── storm.json
+│   │   │   ├── strike.json
+│   │   │   └── zero.json
+│   │   └── machines.json
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── images
+│   │   ├── icons
+│   │   │   ├── spark-dash.png
+│   │   │   ├── spark-storm.png
+│   │   │   ├── spark-strike.png
+│   │   │   └── spark-zero.png
+│   │   ├── logos
+│   │   │   ├── logo-responsive-white.png
+│   │   │   └── logo-responsive.png
+│   │   ├── patterns
+│   │   │   └── mosaic.png
+│   │   ├── spark-dash
+│   │   │   ├── apple
+│   │   │   ├── detalles
+│   │   │   ├── hero
+│   │   │   │   └── main.png
+│   │   │   └── principal
+│   │   │       ├── slide-1.jpg
+│   │   │       ├── slide-2.jpg
+│   │   │       └── slide-3.jpg
+│   │   ├── spark-storm
+│   │   │   ├── apple
+│   │   │   ├── detalles
+│   │   │   ├── hero
+│   │   │   │   └── main.png
+│   │   │   └── principal
+│   │   │       ├── slide-1.jpg
+│   │   │       ├── slide-2.jpg
+│   │   │       └── slide-3.jpg
+│   │   ├── spark-strike
+│   │   │   ├── apple
+│   │   │   ├── detalles
+│   │   │   ├── hero
+│   │   │   │   └── main.png
+│   │   │   └── principal
+│   │   │       ├── slide-1.jpg
+│   │   │       ├── slide-2.jpg
+│   │   │       └── slide-3.jpg
+│   │   └── spark-zero
+│   │       ├── apple
+│   │       ├── detalles
+│   │       ├── hero
+│   │       │   └── main.png
+│   │       └── principal
+│   │           ├── slide-1.jpg
+│   │           ├── slide-2.jpg
+│   │           └── slide-3.jpg
+│   ├── next.svg
+│   ├── scripts
+│   │   └── main.js
+│   ├── vercel.svg
+│   └── window.svg
+├── src
+│   └── app
+│       ├── components
+│       │   ├── AiBlock
+│       │   │   └── AiBlock.jsx
+│       │   ├── Details
+│       │   │   └── Details.jsx
+│       │   ├── Header
+│       │   │   ├── Header.jsx
+│       │   │   └── HeaderWrapper.jsx
+│       │   ├── Hero
+│       │   │   └── Hero.jsx
+│       │   └── LoPrincipal
+│       │       └── LoPrincipal.jsx
+│       ├── favicon.ico
+│       ├── layout.js
+│       ├── page.js
+│       └── styles
+│           ├── base.css
+│           ├── components
+│           │   ├── Details
+│           │   │   └── details.css
+│           │   ├── Hero
+│           │   │   ├── hero.desktop.css
+│           │   │   └── hero.mobile.css
+│           │   ├── LoPrincipal
+│           │   │   ├── README.md
+│           │   │   └── loPrincipal.module.css
+│           │   └── menuItems.js
+│           ├── globals.css
+│           └── layout.css
+└── tree.txt
+
+42 directories, 60 files

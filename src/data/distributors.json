@@ -1,0 +1,17 @@
+{
+  "distributors": [
+    {
+      "id": "sublime",
+      "name": "Sublime Beauty",
+      "address": "Av. Bon Pastor 33-45, 08930 Sant Adrià del Besós, Barcelona, España",
+      "customerHours": "Lunes a Viernes · 9:00–13:00 / 15:00–18:00",
+      "storeHours": "Lunes a Viernes 8:30–18:30 · Sábado 9:00–14:00",
+      "phone1": "933812391",
+      "phone2": "672620250",
+      "email": "info@sublimebw.com",
+      "website": "https://sublimebw.com/",
+      "mapsLink": "https://maps.app.goo.gl/42Y6dMNgFjWm6aeZ7",
+      "logo": "/images/distributors/sublime/logo.png"
+    }
+  ]
+}

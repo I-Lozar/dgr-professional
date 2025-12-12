@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.input {
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.textarea {
+  padding: 14px;
+  font-size: 16px;
+  height: 140px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  padding: 14px;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ok {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}

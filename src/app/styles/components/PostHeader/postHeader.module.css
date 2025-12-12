@@ -1,0 +1,92 @@
+.wrapper {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.inner {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  align-items: center;
+}
+
+.item {
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  transition: opacity 0.2s ease;
+}
+
+.item:hover {
+  opacity: 0.7;
+}
+
+.icon {
+  width: 90px;
+  height: auto;
+}
+
+.name {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #000;
+}
+
+.new {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #BF4800;
+  font-weight: 500;
+}
+
+/* ========================= */
+/* ======== MOBILE ========= */
+/* ========================= */
+@media (max-width: 768px) {
+
+  /* Activamos scroll lateral */
+  .inner {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    display: flex;
+    gap: 50px; /* un poco menos para móvil */
+    padding: 0 20px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none; /* quitar barra Firefox */
+  }
+
+  /* Quitar barra en iOS/Chrome */
+  .inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Cada item como snap */
+  .item {
+    scroll-snap-align: center;
+    flex: 0 0 auto; /* evita que colapse */
+  }
+
+  /* Iconos algo más pequeños en móvil */
+  .icon {
+    width: 70px;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .new {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "title": "Spark Storm",
+    "subtitle": "Máxima estabilidad",
+    "image": "/images/spark-storm/hero/main.webp"
+  },
+"loPrincipal": {
+  "cards": [
+    {
+      "intro": "Motor2 brushless",
+      "title": "Potencia y precisión",
+      "description": "Tecnología de alto rendimiento para un corte perfecto.",
+      "image": "/images/spark-dash/principal/slide-1.jpg"
+    },
+    {
+      "intro": "Batería DGR",
+      "title": "Autonomía extendida",
+      "description": "Rendimiento máximo con cargas ultrarrápidas.",
+      "image": "/images/spark-dash/principal/slide-2.jpg"
+    },
+    {
+      "intro": "Construcción",
+      "title": "Materiales premium",
+      "description": "Diseño robusto, ligero y resistente al uso profesional.",
+      "image": "/images/spark-dash/principal/slide-3.jpg"
+    }
+  ]
+  },
+  "details": {
+    "items": [
+      {
+        "title": "Control",
+        "description": "Precisión excepcional en maniobra"
+      },
+      {
+        "title": "Seguridad",
+        "description": "Sistema de protección reforzado"
+      }
+    ]
+  }
+}

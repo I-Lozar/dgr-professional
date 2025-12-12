@@ -1,0 +1,124 @@
+/* === LAYOUT DOS COLUMNAS (GOLDWELL STYLE) === */
+.layout {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  height: calc(100vh - 80px);
+  background: #f7f7f7;
+  overflow: hidden;
+}
+
+/* LEFT PANEL */
+.leftPanel {
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* SEARCH BAR */
+.searchBar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.searchIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  opacity: 0.6;
+}
+
+.searchInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: none;
+}
+
+.count {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+/* DISTRIBUTOR CARD */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.address {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 15px;
+}
+
+.block {
+  margin-bottom: 15px;
+}
+
+.block h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contactButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 14px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: #222;
+}
+
+/* RIGHT PANEL (MAP) */
+.mapPanel {
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 400px;
+    height: auto;
+  }
+
+  .mapPanel {
+    height: 400px;
+  }
+
+  .map {
+    height: 100%;
+  }
+}

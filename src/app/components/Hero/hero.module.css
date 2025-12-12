@@ -1,0 +1,175 @@
+/* === HERO — FONDO + MÁQUINA SEPARADOS === */
+
+.hero {
+  position: relative;
+  width: 100%;
+  color: #ffffff;
+  background-color: #000;
+  text-align: center;
+  overflow: hidden;
+
+  height: 140vh;
+  min-height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ========================= */
+/* FONDO WEBP: fade + scale + parallax */
+/* ========================= */
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: brightness(0.65) saturate(0.9);
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1.2s ease;
+
+  will-change: transform;
+  z-index: 1;
+}
+
+.bgVisible {
+  opacity: 0.55;
+  transform: scale(1);
+}
+
+/* ========================= */
+/* MÁQUINA PNG */
+/* ========================= */
+
+.machineWrapper {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  overflow: hidden;
+  z-index: 2;
+}
+
+.machine {
+  width: auto;
+  height: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  object-position: center bottom;
+
+  opacity: 0;
+  transform: translateY(40px) scale(1.05);
+  transition: opacity 0.6s ease, transform 0.8s ease;
+
+  will-change: transform;
+}
+
+.machineVisible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* ========================= */
+/* ESCALA POR MÁQUINA */
+/* ========================= */
+/* Nota: el translateY inicial lo aplica la animación, solo ajustamos scale */
+
+.dash .machine { scale: 1.10; }
+.strike .machine { scale: 1.20; }
+.zero .machine  { scale: 1.15; }
+.storm .machine { scale: 1.05; }
+
+/* ========================= */
+/* TEXTO / LOGO */
+/* ========================= */
+
+.content {
+  margin-top: 60px;
+  position: relative;
+  z-index: 3;
+}
+
+/* === LOGO CORPORATIVO (sustituye H1) === */
+.logo {
+  width: auto;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+/* Logo aparece cuando el fondo termina de cargar */
+.bgVisible ~ .content .logo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtítulo */
+.content p {
+  font-size: 24px;
+  opacity: 0.85;
+  margin-top: 10px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: 85vh;
+    min-height: 480px;
+  }
+
+  .backgroundImage {
+    filter: brightness(0.55) saturate(0.85);
+    opacity: 0.45;
+  }
+
+  .machine {
+    max-height: 57vh;
+  }
+
+  /* Logo escala suave */
+  .logo {
+    max-width: 260px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+}
+
+/* ========================= */
+/* PRELOAD */
+/* ========================= */
+
+.preloadBg {
+  display: none;
+}
+
+/* === FADE NEGRO INICIAL estilo Apple === */
+.initialFade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 1;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+}

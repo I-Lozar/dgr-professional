@@ -1,0 +1,31 @@
+.wrapper {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.results {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+}

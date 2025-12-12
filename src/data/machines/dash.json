@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Spark Dash",
+    "subtitle": "Domina el corte con precisión",
+    "image": "/images/spark-dash/hero/main.webp"
+  },
+"loPrincipal": {
+  "cards": [
+    {
+      "intro": "Potencia bajo control",
+      "title": "La fuerza de un motor mecánico 360º ",
+      "description": "La Spark Dash trabaja entre 8.000 y 9-000 rpm, un rango pensado para un corte con firmeza, sin atropellarse y sin perder la línea. Su robusto motor entrega una fuerza constante y estable.",
+      "image": "/images/spark-dash/principal/slide-1.jpg"
+    },
+    {
+      "intro": "Rendimiento bajo control",
+      "title": "Pantalla inteligente y batería de larga duración",
+      "description": "La Spark entrega hasta 12 cortes con una sola carga, gracias a su batería de 3.200 mAh. Olvídate del temor a que se apague tu máquina o pierda potencia durante un servicio.",
+      "image": "/images/spark-dash/principal/slide-2.jpg"
+    },
+    {
+      "intro": "Temperatura bajo control",
+      "title": "Materiales que disipan el calor",
+      "description": "Con una cuchilla de grafeno bañada en titanio con una ingeniosa abertura de 45 ° para mayor profundidad y su sólida carcasa de aluminio que ayuda a mantener la máquina en una temperatura óptima para tu comodidad y la de tu cliente..",
+      "image": "/images/spark-dash/principal/slide-3.jpg"
+    },
+    {
+      "intro": "La estabilidad es una virtud",
+      "title": "Peso y agarre bajo control",
+      "description": "La robustez de su cuerpo de metal y su potente motor mecánico aportan un peso que no es una casualidad, el objetivo es brindar estabilidad, dominio y precisión en cada pasada.",
+      "image": "/images/spark-dash/principal/slide-4.jpg"
+    }
+
+  ]
+  },
+  "details": {
+    "items": [
+      {
+        "title": "Motor",
+        "description": "Motor brushless industrial"
+      },
+      {
+        "title": "Batería",
+        "description": "Tecnología avanzada DGR"
+      }
+    ]
+  }
+}
