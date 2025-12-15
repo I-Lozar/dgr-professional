@@ -2,9 +2,89 @@
 .section {
   width: 100%;
   padding: 60px 0;
-  background: #f5f5f7;
   position: relative;
   overflow: hidden;
+
+  /* Fondo con transición suave para evitar “cortes” arriba/abajo y en laterales */
+  background:
+    radial-gradient(1200px 600px at 0% 50%, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0) 60%),
+    radial-gradient(1200px 600px at 100% 50%, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0) 60%),
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f5f5f7 14%,
+      #f5f5f7 86%,
+      #ffffff 100%
+    );
+}
+
+/* Velos para fundir con secciones blancas (arriba/abajo) */
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section::before {
+  top: 0;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.section::after {
+  bottom: 0;
+  background: linear-gradient(0deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* === CONTENEDOR “BOXED” === */
+/* Alinea el contenido con el resto (mismo patrón que Details: 1200 + 40px) */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* por encima de los velos */
+}
+
+/* === HEADER DE LA SECCIÓN === */
+.header {
+  width: 100%;
+  padding: 0 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0;
+  color: #030303;
+}
+
+.link {
+  font-size: 18px;
+  color: #2997ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.arrowSymbol {
+  font-size: 20px;
+  position: relative;
+  top: 1px;
 }
 
 /* === SLIDER === */
@@ -16,8 +96,8 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
-  padding: 0 40px;
-  margin-bottom: 40px;
+  padding: 0;              /* el padding lo controla .container */
+  margin-bottom: 18px;     /* espacio antes de las flechas */
 
   -webkit-overflow-scrolling: touch;
 }
@@ -31,17 +111,21 @@
   flex: 0 0 360px;
   scroll-snap-align: start;
 
-  background: #ffffff;
+  /* leve gradiente para que la tarjeta no “corte” contra el gris */
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
   border-radius: 28px;
   padding: 28px;
 
-  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-  transition: transform .25s ease, box-shadow .25s ease;
+  /* borde sutil para evitar efecto “pegatina” */
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
 }
 
 /* === TEXTO === */
@@ -78,13 +162,12 @@
 }
 
 /* === FLECHAS === */
+/* Ahora van alineadas al box (no absolutas contra el viewport) */
 .arrows {
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
-  position: absolute;
-  bottom: 25px;
-  right: 40px;
-  z-index: 20;
+  margin-top: 10px;
 }
 
 .arrow {
@@ -102,7 +185,7 @@
   align-items: center;
   justify-content: center;
 
-  transition: background .2s ease, opacity .2s ease;
+  transition: background 0.2s ease, opacity 0.2s ease;
 }
 
 .arrow:hover {
@@ -114,29 +197,42 @@
   pointer-events: none;
 }
 
-/* === SHADOWS APPLE === */
+/* === SHADOWS === */
+/* Importante: ahora están dentro de .container y por tanto “boxed” */
 .leftShadow,
 .rightShadow {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 70px;
+
+  /* recorta el degradado para que no manche el header ni las flechas */
+  top: 92px;
+  bottom: 66px;
+
+  width: 84px;
 
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 
   z-index: 5;
 }
 
+/* Clave: degradado contra el color real del fondo (#f5f5f7), no negro */
 .leftShadow {
-  left: 0;
-  background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.08));
+  left: 40px; /* coincide con el padding del container */
+  background: linear-gradient(
+    90deg,
+    rgba(245, 245, 247, 1) 0%,
+    rgba(245, 245, 247, 0) 100%
+  );
 }
 
 .rightShadow {
-  right: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.08));
+  right: 40px; /* coincide con el padding del container */
+  background: linear-gradient(
+    270deg,
+    rgba(245, 245, 247, 1) 0%,
+    rgba(245, 245, 247, 0) 100%
+  );
 }
 
 .visible {
@@ -145,70 +241,12 @@
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-
-  .slider {
+  .container {
     padding: 0 20px;
   }
 
-  .card {
-    flex: 0 0 85%;
-    border-radius: 22px;
-  }
-
-  .title {
-    font-size: 20px;
-  }
-  
-  .description {
-    font-size: 14px;
-  }
-}
-
-
-/* === HEADER DE LA SECCIÓN === */
-
-.header {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 40px 40px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header h2 {
-  font-size: 42px;
-  font-weight: 700;
-  margin: 0;
-  color: #030303;
-}
-
-.link {
-  font-size: 18px;
-  color: #2997ff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: opacity .2s ease;
-}
-
-.link:hover {
-  opacity: 0.7;
-}
-
-.arrowSymbol {
-  font-size: 20px;
-  position: relative;
-  top: 1px;
-}
-
-/* === RESPONSIVE HEADER === */
-
-@media (max-width: 768px) {
   .header {
-    padding: 0 20px 30px;
+    padding: 0 0 30px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -220,5 +258,32 @@
 
   .link {
     font-size: 16px;
+  }
+
+  .card {
+    flex: 0 0 85%;
+    border-radius: 22px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .leftShadow {
+    left: 20px;
+  }
+
+  .rightShadow {
+    right: 20px;
+  }
+
+  .leftShadow,
+  .rightShadow {
+    top: 86px;
+    bottom: 58px;
   }
 }

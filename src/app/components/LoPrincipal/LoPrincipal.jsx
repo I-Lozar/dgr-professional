@@ -31,57 +31,52 @@ export default function LoPrincipal({ data, machine }) {
 
   return (
     <section className={styles.section}>
+      <div className={styles.container}>
+        {/* HEADER DE LA SECCIÓN */}
+        <div className={styles.header}>
+          <h2>Lo principal.</h2>
+          <Link href={`/spark/${machine}/video`} className={styles.link}>
+            Ver el vídeo <span className={styles.arrowSymbol}>→</span>
+          </Link>
+        </div>
 
-      {/* HEADER DE LA SECCIÓN */}
-      <div className={styles.header}>
-        <h2>Lo principal.</h2>
-        <Link href={`/spark/${machine}/video`} className={styles.link}>
-          Ver el vídeo
-          <span className={styles.arrowSymbol}>→</span>
-        </Link>
-      </div>
+        {/* Sombras laterales (ahora alineadas al “box”) */}
+        <div className={`${styles.leftShadow} ${canScrollLeft ? styles.visible : ""}`} />
+        <div className={`${styles.rightShadow} ${canScrollRight ? styles.visible : ""}`} />
 
-      {/* Sombras laterales */}
-      <div className={`${styles.leftShadow} ${canScrollLeft ? styles.visible : ""}`}></div>
-      <div className={`${styles.rightShadow} ${canScrollRight ? styles.visible : ""}`}></div>
+        {/* Carrusel (boxed) */}
+        <div className={styles.slider} ref={sliderRef} onScroll={updateArrows}>
+          {data.cards.map((card, i) => (
+            <div className={styles.card} key={i}>
+              <p className={styles.intro}>{card.intro}</p>
+              <h3 className={styles.title}>{card.title}</h3>
+              <p className={styles.description}>{card.description}</p>
 
-      {/* Carrusel */}
-      <div
-        className={styles.slider}
-        ref={sliderRef}
-        onScroll={updateArrows}
-      >
-        {data.cards.map((card, i) => (
-          <div className={styles.card} key={i}>
-
-            <p className={styles.intro}>{card.intro}</p>
-            <h3 className={styles.title}>{card.title}</h3>
-            <p className={styles.description}>{card.description}</p>
-
-            <div className={styles.imageWrapper}>
-              <img src={card.image} alt={card.title} />
+              <div className={styles.imageWrapper}>
+                <img src={card.image} alt={card.title} />
+              </div>
             </div>
+          ))}
+        </div>
 
-          </div>
-        ))}
+        {/* Flechas (alineadas al borde derecho del box) */}
+        <div className={styles.arrows}>
+          <button
+            className={`${styles.arrow} ${!canScrollLeft ? styles.disabled : ""}`}
+            onClick={() => slide(-1)}
+            aria-label="Anterior"
+          >
+            ‹
+          </button>
+          <button
+            className={`${styles.arrow} ${!canScrollRight ? styles.disabled : ""}`}
+            onClick={() => slide(1)}
+            aria-label="Siguiente"
+          >
+            ›
+          </button>
+        </div>
       </div>
-
-      {/* Flechas */}
-      <div className={styles.arrows}>
-        <button
-          className={`${styles.arrow} ${!canScrollLeft ? styles.disabled : ""}`}
-          onClick={() => slide(-1)}
-        >
-          ‹
-        </button>
-        <button
-          className={`${styles.arrow} ${!canScrollRight ? styles.disabled : ""}`}
-          onClick={() => slide(1)}
-        >
-          ›
-        </button>
-      </div>
-
     </section>
   );
 }
