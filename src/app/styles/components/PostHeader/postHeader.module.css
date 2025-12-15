@@ -20,6 +20,11 @@
   text-decoration: none;
   color: #000;
   transition: opacity 0.2s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160px;
 }
 
 .item:hover {
@@ -27,8 +32,19 @@
 }
 
 .icon {
-  width: 90px;
-  height: auto;
+  width: 60px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+
+  /* NUEVO: escala ajustable por item (corrige “aire” en PNG) */
+  transform: scale(var(--icon-scale, 1));
+  transform-origin: center;
+}
+
+/* NUEVO: Storm se ve más pequeña → la compensamos */
+.item[data-id="storm"] {
+  --icon-scale: 1.45;
 }
 
 .name {
@@ -51,42 +67,43 @@
 /* ========================= */
 @media (max-width: 768px) {
 
-  /* Activamos scroll lateral */
   .inner {
-    overflow-x: auto;
-    overflow-y: hidden;
+    width: 100%;
+    max-width: none;
 
+    overflow: visible;
     display: flex;
-    gap: 50px; /* un poco menos para móvil */
-    padding: 0 20px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none; /* quitar barra Firefox */
+    gap: 12px;
+    padding: 0 12px;
   }
 
-  /* Quitar barra en iOS/Chrome */
-  .inner::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Cada item como snap */
   .item {
-    scroll-snap-align: center;
-    flex: 0 0 auto; /* evita que colapse */
+    flex: 1 1 0;
+    width: auto;
   }
 
-  /* Iconos algo más pequeños en móvil */
   .icon {
-    width: 70px;
+    width: 30px;
+    height: 50px;
+    object-fit: contain;
+
+    transform: scale(var(--icon-scale, 1));
+    transform-origin: center;
+  }
+
+  /* (Opcional) si en móvil aún queda pequeña, sube un poco */
+  .item[data-id="storm"] {
+    --icon-scale: 1.55;
   }
 
   .name {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .new {
-    font-size: 11px;
+    font-size: 10px;
   }
 }

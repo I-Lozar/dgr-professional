@@ -8,8 +8,10 @@
   text-align: center;
   overflow: hidden;
 
-  height: 140vh;
-  min-height: 600px;
+  /* Desktop más “habitual” */
+  height: 92vh;
+  min-height: 640px;
+  max-height: 900px;
 
   display: flex;
   flex-direction: column;
@@ -27,79 +29,38 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: brightness(0.65) saturate(0.9);
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 1s ease, transform 1.2s ease;
+  filter: none;
 
+  opacity: 0;
+
+  /* Parallax via CSS var (set desde JS) */
+  --bg-scroll-y: 0px;
+  transform: translateY(var(--bg-scroll-y)) scale(1.05);
+
+  transition: opacity 1s ease, transform 1.2s ease;
   will-change: transform;
   z-index: 1;
 }
 
 .bgVisible {
-  opacity: 0.55;
-  transform: scale(1);
+  opacity: 1;
+  transform: translateY(var(--bg-scroll-y)) scale(1);
 }
-
-/* ========================= */
-/* MÁQUINA PNG */
-/* ========================= */
-
-.machineWrapper {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-
-  overflow: hidden;
-  z-index: 2;
-}
-
-.machine {
-  width: auto;
-  height: 100%;
-  max-height: 100vh;
-  object-fit: contain;
-  object-position: center bottom;
-
-  opacity: 0;
-  transform: translateY(40px) scale(1.05);
-  transition: opacity 0.6s ease, transform 0.8s ease;
-
-  will-change: transform;
-}
-
-.machineVisible {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
-}
-
-/* ========================= */
-/* ESCALA POR MÁQUINA */
-/* ========================= */
-/* Nota: el translateY inicial lo aplica la animación, solo ajustamos scale */
-
-.dash .machine { scale: 1.10; }
-.strike .machine { scale: 1.20; }
-.zero .machine  { scale: 1.15; }
-.storm .machine { scale: 1.05; }
 
 /* ========================= */
 /* TEXTO / LOGO */
 /* ========================= */
 
 .content {
-  margin-top: 60px;
+  margin-top: clamp(26px, 4vh, 54px);
   position: relative;
   z-index: 3;
 }
 
-/* === LOGO CORPORATIVO (sustituye H1) === */
+/* Logo más pequeño en desktop (y responsivo por clamp) */
 .logo {
   width: auto;
-  max-width: 480px;
+  max-width: clamp(260px, 24vw, 360px);
   display: block;
   margin: 0 auto;
 
@@ -122,26 +83,110 @@
 }
 
 /* ========================= */
+/* MÁQUINA PNG */
+/* ========================= */
+/* Objetivo: centrada en el hueco “útil” del hero, con margen superior e inferior limpios y consistentes */
+
+.machineWrapper {
+  position: absolute;
+  inset: 0;
+
+  /* Reservas para que la máquina quede centrada entre “zona del logo” y el final del hero */
+  --top-safe: clamp(190px, 26vh, 280px);
+  --bottom-gap: clamp(26px, 4vh, 64px);
+
+  padding-top: var(--top-safe);
+  padding-bottom: var(--bottom-gap);
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centrado vertical dentro del espacio disponible */
+
+  overflow: hidden;
+  z-index: 2;
+}
+
+.machine {
+  width: auto;
+
+  /* Encaje consistente dentro del hero (respeta top-safe + bottom-gap) */
+  height: 100%;
+  max-height: min(100vh, calc(100% - var(--top-safe) - var(--bottom-gap)));
+  object-fit: contain;
+  object-position: center bottom;
+
+  opacity: 0;
+
+  /* Parallax via CSS var (set desde JS) */
+  --machine-scroll-y: 0px;
+
+  /* Intro animation sin romper parallax */
+  --machine-intro-y: 40px;
+
+  transform:
+    translateY(calc(var(--machine-intro-y) + var(--machine-scroll-y)))
+    scale(calc(1.05 * var(--machine-scale)));
+
+  transition: opacity 0.6s ease, transform 0.8s ease;
+  will-change: transform;
+}
+
+.machineVisible {
+  opacity: 1 !important;
+
+  --machine-intro-y: 0px;
+
+  transform:
+    translateY(calc(var(--machine-intro-y) + var(--machine-scroll-y)))
+    scale(var(--machine-scale)) !important;
+}
+
+/* ========================= */
+/* ESCALA POR MÁQUINA (BASE) */
+/* ========================= */
+/* Ajustado para compensar “aire” típico en assets y unificar tamaño visual */
+
+.dash   { --machine-scale: 1.70; }
+.strike { --machine-scale: 1.70; }
+.zero   { --machine-scale: 1.55; }
+.storm  { --machine-scale: 1.40; }
+
+/* ========================= */
+/* AJUSTE SOLO DESKTOP (si hiciera falta) */
+/* ========================= */
+/* Déjalo como referencia: toca solo si alguna máquina “pide” microajuste en desktop */
+
+@media (min-width: 769px) {
+  .dash   { --machine-scale: 1.75; }
+  .strike { --machine-scale: 1.75; }
+  .zero   { --machine-scale: 1.70; }
+  .storm  { --machine-scale: 1.65; }
+}
+
+/* ========================= */
 /* RESPONSIVE */
 /* ========================= */
 
 @media (max-width: 768px) {
-
   .hero {
     height: 85vh;
     min-height: 480px;
   }
 
   .backgroundImage {
-    filter: brightness(0.55) saturate(0.85);
-    opacity: 0.45;
+    filter: none;
+  }
+
+  /* En móvil ya estaba perfecto: mantenemos lógica, solo ajustamos reservas */
+  .machineWrapper {
+    --top-safe: clamp(130px, 22vh, 190px);
+    --bottom-gap: clamp(16px, 3vh, 40px);
   }
 
   .machine {
-    max-height: 57vh;
+    max-height: min(57vh, calc(100% - var(--top-safe) - var(--bottom-gap)));
   }
 
-  /* Logo escala suave */
   .logo {
     max-width: 260px;
   }
@@ -172,4 +217,141 @@
 
 .fadeOut {
   opacity: 0;
+}
+
+/* ========================= */
+/* OVERLAY LOCALIZADO DETRÁS DEL LOGO/TEXTO */
+/* ========================= */
+
+.content {
+  position: relative;
+}
+
+/* Mancha oscura suave detrás del logo + subtítulo */
+.content::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -36px;
+  transform: translateX(-50%);
+  width: min(860px, 92vw);
+  height: 280px;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    rgba(0, 0, 0, 0.00) 75%
+  );
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Asegura que el contenido quede por encima del overlay */
+.logo,
+.content p {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .content::before {
+    top: -28px;
+    height: 220px;
+    width: min(520px, 94vw);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.68) 0%,
+      rgba(0, 0, 0, 0.38) 48%,
+      rgba(0, 0, 0, 0.00) 78%
+    );
+  }
+}
+
+/* ========================= */
+/* ELECTRIFICACIÓN DEL FONDO */
+/* ========================= */
+
+/* Color “eléctrico” por máquina */
+.dash   { --electric-rgb: 255, 209, 0; }
+.strike { --electric-rgb:  60, 255, 210; }
+.zero   { --electric-rgb: 255,  70,  70; }
+.storm  { --electric-rgb:  80, 200, 255; }
+
+/* Barrido eléctrico principal (una pasada) */
+.backgroundImage::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(0,0,0,0) 0%,
+      rgba(var(--electric-rgb), 0.00) 38%,
+      rgba(var(--electric-rgb), 0.55) 50%,
+      rgba(var(--electric-rgb), 0.00) 62%,
+      rgba(0,0,0,0) 100%
+    ),
+    radial-gradient(circle at 20% 40%, rgba(var(--electric-rgb), 0.20) 0 6px, rgba(0,0,0,0) 7px),
+    radial-gradient(circle at 70% 55%, rgba(var(--electric-rgb), 0.18) 0 5px, rgba(0,0,0,0) 6px),
+    radial-gradient(circle at 45% 70%, rgba(var(--electric-rgb), 0.16) 0 4px, rgba(0,0,0,0) 5px);
+
+  mix-blend-mode: screen;
+  filter: blur(6px);
+  opacity: 0;
+  transform: translateX(-35%) translateY(0);
+}
+
+/* Flicker sutil */
+.backgroundImage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    rgba(var(--electric-rgb), 0.10) 0%,
+    rgba(var(--electric-rgb), 0.00) 60%
+  );
+
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+/* Disparo del efecto cuando el hero está listo */
+.electrify::after {
+  animation: electricSweep 1.35s ease-out 0.15s 1 forwards;
+}
+
+.electrify::before {
+  animation: electricFlicker 1.10s ease-in-out 0.15s 1 forwards;
+}
+
+@keyframes electricSweep {
+  0%   { opacity: 0; transform: translateX(-45%); }
+  10%  { opacity: 0.9; }
+  60%  { opacity: 0.6; }
+  100% { opacity: 0; transform: translateX(45%); }
+}
+
+@keyframes electricFlicker {
+  0%   { opacity: 0; }
+  15%  { opacity: 0.35; }
+  25%  { opacity: 0.10; }
+  40%  { opacity: 0.30; }
+  60%  { opacity: 0.12; }
+  100% { opacity: 0; }
+}
+
+/* Respeto a reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .electrify::after,
+  .electrify::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
 }
