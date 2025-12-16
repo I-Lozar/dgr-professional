@@ -1,8 +1,8 @@
-import DistributorFinder from "@/app/components/DistributorFinder/DistributorFinder";
+import DistributorFinder from "@/app/components/DistributorFinder/DistributorFinder.jsx";
 
 export const metadata = {
   title: "Distribuidor Finder | DGR Spark",
-  description: "Encuentra distribuidores oficiales de la gama Spark.",
+  description: "Encuentra tu distribuidor oficial",
 };
 
 export default function Page() {

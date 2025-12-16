@@ -1,9 +1,298 @@
 .footer {
-  margin-top: 80px;
-  width: 100%;
-  background: #111;
-  color: #aaa;
-  text-align: center;
-  padding: 30px 0;
+  background: #f6f6f6;
+  color: rgba(0, 0, 0, 0.78);
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.inner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 56px 0 0; /* el cierre lo hace .bottom */
+}
+
+/* =========================
+   TOP
+========================= */
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.brand {
+  max-width: 520px;
+}
+
+.brandHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.brandName {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #0b0b0b;
+}
+
+.brandTag {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.brandDesc {
+  margin: 0 0 16px 0;
+  line-height: 1.65;
   font-size: 14px;
+  color: rgba(0, 0, 0, 0.70);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social a {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.72);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  padding-bottom: 2px;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.social a:hover {
+  color: #000000;
+  border-bottom-color: rgba(0, 0, 0, 0.55);
+}
+
+/* =========================
+   DESKTOP COLUMNS
+========================= */
+.columnsDesktop {
+  display: none; /* mobile: se usa accordion */
+}
+
+.col {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* List + Address shared */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.list a {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.70);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.list a:hover {
+  color: #000000;
+}
+
+.address {
+  font-style: normal;
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.addressLine {
+  display: grid;
+  gap: 4px;
+}
+
+.addressLabel {
+  font-size: 11px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.address a,
+.address span {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.70);
+  text-decoration: none;
+}
+
+.address a:hover {
+  color: #000000;
+}
+
+/* =========================
+   MOBILE ACCORDION (desplegables)
+========================= */
+.columnsMobile {
+  display: grid;
+  gap: 0;
+  margin-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.details {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  padding: 0;
+}
+
+.summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 0;
+  margin: 0;
+
+  font-size: 12px;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::after {
+  content: "▾";
+  font-size: 12px;
+  opacity: 0.55;
+  transform: translateY(-1px);
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.details[open] .summary::after {
+  transform: rotate(180deg);
+  opacity: 0.85;
+}
+
+.details > .list,
+.details > .address {
+  padding: 0 0 14px 0;
+}
+
+/* =========================
+   BOTTOM
+   Solución: franja full-bleed + separación limpia
+========================= */
+.bottom {
+  position: relative;
+  z-index: 0;
+
+  /* sin margin-top para eliminar el “hueco” que se ve en la última línea */
+  margin-top: 0;
+  padding: 18px 0 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Franja inferior a ancho completo (full-bleed) sin romper el layout centrado */
+.bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+
+  background: #ededed; /* coherente con header claro */
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: -1;
+}
+
+.copy {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.58);
+}
+
+.bottomNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.bottomNav a {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.65);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.bottomNav a:hover {
+  color: #000000;
+}
+
+.sep {
+  opacity: 0.35;
+}
+
+/* =========================
+   ACCESIBILIDAD (focus visible)
+========================= */
+.social a:focus-visible,
+.list a:focus-visible,
+.bottomNav a:focus-visible,
+.summary:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (min-width: 860px) {
+  .top {
+    grid-template-columns: 420px 1fr;
+    gap: 44px;
+    align-items: start;
+    padding-bottom: 28px;
+  }
+
+  .columnsMobile {
+    display: none;
+  }
+
+  .columnsDesktop {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+  }
+
+  .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

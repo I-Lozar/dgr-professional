@@ -1,124 +1,370 @@
-/* === LAYOUT DOS COLUMNAS (GOLDWELL STYLE) === */
-.layout {
-  display: grid;
-  grid-template-columns: 430px 1fr;
-  height: calc(100vh - 80px);
-  background: #f7f7f7;
-  overflow: hidden;
-}
-
-/* LEFT PANEL */
-.leftPanel {
-  background: #fff;
-  border-right: 1px solid #ddd;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-/* SEARCH BAR */
-.searchBar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  background: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.searchIcon {
-  font-size: 20px;
-  margin-right: 10px;
-  opacity: 0.6;
-}
-
-.searchInput {
+.page {
   width: 100%;
-  border: none;
-  outline: none;
+  color: #000;
+
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0) 55%),
+    radial-gradient(1200px 700px at 80% 20%, rgba(0, 0, 0, 0.035), rgba(0, 0, 0, 0) 55%),
+    linear-gradient(180deg, #ffffff 0%, #f5f5f7 28%, #ffffff 100%);
+
+  padding: 110px 0 90px;
+}
+
+.max {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.head {
+  margin-bottom: 26px;
+}
+
+.title {
+  font-size: clamp(34px, 4.2vw, 58px);
+  line-height: 1.03;
+  margin: 0 0 10px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  margin: 0;
+  color: #6e6e73;
   font-size: 16px;
-  background: none;
+  line-height: 1.55;
+  max-width: 62ch;
 }
 
-.count {
-  font-size: 14px;
-  opacity: 0.6;
-  margin-bottom: 20px;
+.grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 22px;
+  align-items: start;
 }
 
-/* DISTRIBUTOR CARD */
+/* Card base */
 .card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 28px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card h2 {
-  font-size: 22px;
-  margin-bottom: 6px;
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.09);
 }
 
-.address {
+.cardHead {
+  padding: 22px 22px 0;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.cardHelp {
+  margin: 8px 0 0;
+  color: #6e6e73;
   font-size: 14px;
-  opacity: 0.75;
-  margin-bottom: 15px;
+  line-height: 1.55;
 }
 
-.block {
-  margin-bottom: 15px;
+.searchRow {
+  padding: 16px 22px 22px;
 }
 
-.block h3 {
+.label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #6e6e73;
+  margin-bottom: 8px;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  background: rgba(245, 245, 247, 0.85);
+  outline: none;
   font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.contactButtons {
+.input:focus {
+  border-color: rgba(41, 151, 255, 0.55);
+  box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.12);
+  background: rgba(245, 245, 247, 1);
+}
+
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 0 22px;
+}
+
+.distributor {
+  padding: 22px;
+}
+
+.distributorTop {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  color: #6e6e73;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.distributorName {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.meta {
+  margin: 8px 0 0;
+  color: #6e6e73;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 110px 1fr;
   gap: 10px;
+  margin: 10px 0;
+  align-items: baseline;
 }
 
-.btn {
-  padding: 10px 14px;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  border-radius: 10px;
+.lineLabel {
+  color: #6e6e73;
+  font-size: 13px;
+}
+
+.lineValue {
+  color: #111;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.link {
+  color: #2997ff;
   text-decoration: none;
-  transition: 0.25s ease;
+  font-size: 14px;
+  line-height: 1.45;
+  transition: opacity 0.2s ease;
 }
 
-.btn:hover {
-  background: #222;
+.link:hover {
+  opacity: 0.75;
 }
 
-/* RIGHT PANEL (MAP) */
-.mapPanel {
-  position: relative;
+.note {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  color: #424245;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.map {
+/* ========================= */
+/* MAPA (SIEMPRE DENTRO)     */
+/* ========================= */
+
+.mapMockWrap {
+  padding: 16px 22px 22px;
+}
+
+/* El frame define el lienzo y garantiza que el SVG siempre “quepa” */
+.mapFrame {
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(245, 245, 247, 0.65);
+
+  /* Lienzo estable: suficiente alto para España + islas */
+  aspect-ratio: 16 / 11;
+  min-height: 340px;
+
+  /* Centrado perfecto dentro del frame */
+  display: grid;
+  place-items: center;
+}
+
+/* Host del SVG inyectado */
+.svgHost {
   width: 100%;
   height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+
+  display: grid;
+  place-items: center;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 400px;
-    height: auto;
+/* SVG: ocupa el lienzo, y se “contiene” por preserveAspectRatio en JSX */
+.spainSvg,
+.svgHost svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Si algún SVG trae inline: width/height, lo neutralizamos visualmente */
+.svgHost svg[width],
+.svgHost svg[height] {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Normalización visual */
+.spainSvg path,
+.spainSvg polygon,
+.spainSvg polyline {
+  fill: rgba(0, 0, 0, 0.24);
+  stroke: rgba(255, 255, 255, 0.65);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.spainSvg text {
+  fill: rgba(0, 0, 0, 0.70);
+  font-weight: 700;
+}
+
+/* Highlight */
+.provinceHighlight path,
+.provinceHighlight polygon,
+.provinceHighlight polyline {
+  fill: rgba(41, 151, 255, 0.20) !important;
+  stroke: rgba(41, 151, 255, 0.55) !important;
+}
+
+/* Pin */
+.pinGroup { pointer-events: none; }
+
+.pinPulse {
+  fill: rgba(41, 151, 255, 0.14);
+  stroke: rgba(41, 151, 255, 0.22);
+  animation: pulse 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.pinDot { fill: rgba(41, 151, 255, 0.95); }
+
+.pinStem {
+  stroke: rgba(41, 151, 255, 0.75);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.pinLabel {
+  font-size: 14px;
+  fill: rgba(0, 0, 0, 0.70);
+  font-weight: 900;
+
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.92); opacity: 0.55; }
+  50% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(0.92); opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pinPulse { animation: none; }
+}
+
+.mapLegend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: #6e6e73;
+  font-size: 13px;
+}
+
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(41, 151, 255, 0.28);
+  border: 1px solid rgba(41, 151, 255, 0.35);
+}
+
+/* ========================= */
+/* RESPONSIVE: 1 COLUMNA     */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
   }
 
-  .mapPanel {
-    height: 400px;
+  .card {
+    width: 100% !important;
+  }
+}
+
+/* En móvil damos más altura para que el mapa no quede “aplastado” */
+@media (max-width: 768px) {
+  .mapMockWrap {
+    padding: 14px 16px 18px;
   }
 
-  .map {
-    height: 100%;
+  .mapFrame {
+    aspect-ratio: 16 / 13; /* más alto en móvil para asegurar mapa completo */
+    min-height: 380px;
+  }
+
+  .svgHost {
+    padding: 10px;
   }
 }

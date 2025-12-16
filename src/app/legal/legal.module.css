@@ -1,0 +1,154 @@
+/* ===========================
+   LEGAL PAGES — COMMON STYLES
+   =========================== */
+
+.wrapper {
+  width: 100%;
+  background: #ffffff;
+  color: #0b0b0c;
+}
+
+/* Contenedor centrado */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 20px 72px;
+}
+
+/* “Tarjeta” sutil (opcional, pero queda muy profesional) */
+.paper {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  padding: 28px 26px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Tipografía base + legibilidad */
+.legal {
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.1px;
+}
+
+/* Títulos */
+.legal h1 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  letter-spacing: -0.3px;
+}
+
+.legal h2 {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.25;
+  margin: 26px 0 10px;
+  padding-top: 8px;
+}
+
+.legal h3 {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 18px 0 10px;
+}
+
+/* Separador bajo el H1 */
+.headerRule {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.10);
+  margin: 18px 0 22px;
+}
+
+/* Texto */
+.legal p {
+  margin: 0 0 14px;
+  color: rgba(11, 11, 12, 0.92);
+}
+
+.legal strong {
+  color: #0b0b0c;
+}
+
+.lead {
+  font-size: 16.5px;
+  color: rgba(11, 11, 12, 0.80);
+  margin-bottom: 16px;
+}
+
+/* Listas */
+.legal ul,
+.legal ol {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal li {
+  margin: 6px 0;
+  color: rgba(11, 11, 12, 0.92);
+}
+
+/* Enlaces */
+.legal a {
+  color: #0b0b0c;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  transition: border-color 140ms ease, opacity 140ms ease;
+}
+
+.legal a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.55);
+  opacity: 0.9;
+}
+
+/* Bloques informativos */
+.notice {
+  margin: 18px 0 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.035);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(11, 11, 12, 0.86);
+}
+
+/* Tablas (por si en el futuro metes una tabla de cookies) */
+.legal table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 18px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.legal th,
+.legal td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.legal th {
+  background: rgba(0, 0, 0, 0.03);
+  color: rgba(11, 11, 12, 0.9);
+  font-weight: 600;
+}
+
+.legal tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    padding: 42px 16px 56px;
+  }
+
+  .paper {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .legal {
+    font-size: 15.5px;
+  }
+}

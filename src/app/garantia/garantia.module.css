@@ -1,0 +1,80 @@
+.header {
+  margin-bottom: 18px;
+}
+
+.lead {
+  margin: 0;
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.paper {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  padding: 26px 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+.p {
+  margin: 0 0 14px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.list {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.list li {
+  margin: 8px 0;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.10);
+  margin: 18px 0;
+}
+
+.note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.035);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.78);
+  line-height: 1.65;
+}
+
+.note a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+}
+
+.note a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.55);
+}
+
+@media (max-width: 640px) {
+  .paper {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .h2 {
+    font-size: 18px;
+  }
+}

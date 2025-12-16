@@ -6,8 +6,8 @@ export default function Details({ machine }) {
   // Rutas dinámicas de imágenes según máquina
   const base = `/images/spark-${machine}/details`;
 
-  const detailsImage = `${base}/details-1.png`;
-  const accessoriesImage = `${base}/details-2.png`;
+  const detailsImage = `${base}/details-1.webp`;
+  const accessoriesImage = `${base}/details-2.webp`;
 
   return (
     <section className={styles.section}>
